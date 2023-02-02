@@ -1,5 +1,9 @@
 import { useDataContext } from "@/context/data.context";
+import { useFilterContext } from "@/context/filter.context";
+import ChartRange from "@/types/chartRange.type";
 import { getYearFromDateString, numberToMillions } from "@/utils/formatNumbers";
+import { findIndexOfMax, getDateRangeMax } from "@/utils/walletUtil";
+import { parseISO } from "date-fns";
 import React from "react";
 import {
   LineChart,
@@ -14,12 +18,24 @@ import {
 
 const WalletLineChart = () => {
   const { data } = useDataContext();
-  return data?.data?.length ? (
+  const { filter } = useFilterContext();
+
+  if (!data?.data?.length) return <div>Loading...</div>;
+
+  const idx = findIndexOfMax(
+    data.data.map((d) => parseISO(d.Time)),
+    getDateRangeMax(filter)
+  );
+
+  const filteredData =
+    filter === ChartRange.ALL ? data.data : data.data.slice(idx);
+
+  return (
     <ResponsiveContainer width="100%" height={480}>
       <LineChart
         width={800}
         height={300}
-        data={data.data}
+        data={filteredData}
         margin={{
           top: 5,
           right: 30,
@@ -30,7 +46,7 @@ const WalletLineChart = () => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="Time"
-          interval={Math.floor(data.data.length / (2 * 6))}
+          interval={Math.floor(filteredData.length / (2 * 6))}
           tickFormatter={getYearFromDateString}
         />
         <YAxis tickFormatter={numberToMillions} />
@@ -75,8 +91,6 @@ const WalletLineChart = () => {
         />
       </LineChart>
     </ResponsiveContainer>
-  ) : (
-    <div>Loading...</div>
   );
 };
 

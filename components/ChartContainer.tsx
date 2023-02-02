@@ -2,11 +2,8 @@
 
 import { useDataContext } from "@/context/data.context";
 import { useEffect } from "react";
-import ChartRange from "@/types/chartRange.type";
 import { CsvBtcAddressBalance } from "@/types/btcAddressBalance.type";
 import WalletLineChart from "./WalletLineChart";
-
-const walletChartCache = new Map<ChartRange, number>();
 
 const ChartContainer = () => {
   const { data, setData } = useDataContext();
