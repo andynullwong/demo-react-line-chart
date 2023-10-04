@@ -2,7 +2,12 @@ import { useDataContext } from "@/context/data.context";
 import { useFilterContext } from "@/context/filter.context";
 import ChartRange from "@/types/chartRange.type";
 import { getYearFromDateString, numberToMillions } from "@/utils/formatNumbers";
-import { findIndexOfMax, getDateRangeMax } from "@/utils/walletUtil";
+import {
+  findIndexOfMax,
+  getDateRangeMax,
+  walletChartCache,
+} from "@/utils/walletUtil";
+import Spinner from "@/components/Spinner";
 import { parseISO } from "date-fns";
 import React from "react";
 import {
@@ -20,15 +25,20 @@ const WalletLineChart = () => {
   const { data } = useDataContext();
   const { filter } = useFilterContext();
 
-  if (!data?.data?.length) return <div>Loading...</div>;
+  if (!data?.data?.length) return <Spinner />;
 
-  const idx = findIndexOfMax(
-    data.data.map((d) => parseISO(d.Time)),
-    getDateRangeMax(filter)
-  );
+  if (!walletChartCache.has(filter)) {
+    const idx = findIndexOfMax(
+      data.data.map((d) => parseISO(d.Time)),
+      getDateRangeMax(filter)
+    );
+    walletChartCache.set(filter, idx);
+  }
 
   const filteredData =
-    filter === ChartRange.ALL ? data.data : data.data.slice(idx);
+    filter === ChartRange.ALL
+      ? data.data
+      : data.data.slice(walletChartCache.get(filter)! + 1);
 
   return (
     <ResponsiveContainer width="100%" height={480}>
