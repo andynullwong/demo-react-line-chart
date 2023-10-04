@@ -91,7 +91,7 @@ Due to time constraints and prioritization of maximizing feature completeness an
 
 - For large datasets it is common to use algos to downsample it to improve rendering while minimizing any loss data. In this scenerio I would have considered [LTTB](https://github.com/sveinn-steinarsson/flot-downsample)
 
-- I attempted to simplify the filter testing by using `dotenv` and assigning `process.env.MOCK_TODAY_DATE = "2023-02-01"` mock [TODAY](utils/walletUtil.ts#L8)'s date. On testing I realized that I set the server-side clock but not my browsers. If I was able to completed render all the charts and filters on the server then maybe this could be reconsidered.
+- I attempted to simplify the filter testing by using `dotenv` and assigning `process.env.MOCK_TODAY_DATE = "2023-02-01"` mock [TODAY](utils/walletUtil.ts#L8)'s date. On testing I realized that I set the server-side clock but not my browsers. If I was able to completely render all the charts and filters on the server then maybe this could be reconsidered.
 
 - Depending on use-case. If chart interactivity were not as important (ie: Chart screenshots for news articles on mobile), I would have liked to create routes for each filter and rendered them on the server-side during build. For example `api/btc/wallets/[filter]`. Unless the chart was streaming live data, this would be very helpful for daily snapshots for news articles.
 
