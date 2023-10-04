@@ -6,7 +6,7 @@ const headerMapping = {
   "BTC / Val in Addrs w/ Bal ≥ $10M USD": ">10M",
 };
 
-const customTransformHeader = (header: string) =>
+const customTransformHeader = (header: keyof typeof headerMapping) =>
   headerMapping[header] || header;
 
 export default customTransformHeader;

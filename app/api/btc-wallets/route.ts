@@ -4,6 +4,7 @@ import Papa from "papaparse";
 import path from "path";
 import customTransformHeader from "@/utils/mapCsvHeaders";
 import "server-only";
+import { NextResponse } from "next/server";
 
 export const GET = async () => {
   const filePath = path.join(
@@ -19,7 +20,7 @@ export const GET = async () => {
   const { errors } = csvData;
 
   if (errors.length) {
-    throw Response.json({
+    throw NextResponse.json({
       errors,
       statusCode: 500,
     });
@@ -35,5 +36,5 @@ export const GET = async () => {
     };
   });
 
-  return Response.json({ ...csvData, data: updatedCsvDataList });
+  return NextResponse.json({ ...csvData, data: updatedCsvDataList });
 };
