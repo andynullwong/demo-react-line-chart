@@ -1,7 +1,11 @@
 import { useDataContext } from "@/context/data.context";
 import { useFilterContext } from "@/context/filter.context";
 import ChartRange from "@/types/chartRange.type";
-import { getYearFromDateString, numberToMillions } from "@/utils/formatNumbers";
+import {
+  getDayMonthFromDateString,
+  getYearFromDateString,
+  numberToMillions,
+} from "@/utils/formatNumbers";
 import {
   findIndexOfMax,
   getDateRangeMax,
@@ -40,6 +44,11 @@ const WalletLineChart = () => {
       ? data.data
       : data.data.slice(walletChartCache.get(filter)! + 1);
 
+  const tickFormatter =
+    filter === ChartRange.ALL
+      ? getYearFromDateString
+      : getDayMonthFromDateString;
+
   return (
     <ResponsiveContainer width="100%" height={480}>
       <LineChart
@@ -57,7 +66,7 @@ const WalletLineChart = () => {
         <XAxis
           dataKey="Time"
           interval={Math.floor(filteredData.length / (2 * 6))}
-          tickFormatter={getYearFromDateString}
+          tickFormatter={tickFormatter}
         />
         <YAxis tickFormatter={numberToMillions} />
         <Tooltip

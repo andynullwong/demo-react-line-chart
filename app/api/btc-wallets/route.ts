@@ -3,8 +3,8 @@ import BtcAddressBalance from "@/types/btcAddressBalance.type";
 import Papa from "papaparse";
 import path from "path";
 import customTransformHeader from "@/utils/mapCsvHeaders";
-import "server-only";
 import { NextResponse } from "next/server";
+import "server-only";
 
 export const GET = async () => {
   const filePath = path.join(
