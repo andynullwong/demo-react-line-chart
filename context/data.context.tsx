@@ -5,7 +5,7 @@ import { ReactNode, createContext, useContext, useState } from "react";
 
 type ParsedBtcBalance = Papa.ParseResult<CsvBtcAddressBalance>;
 
-type DataContextType = {
+export type DataContextType = {
   data: ParsedBtcBalance;
   setData: React.Dispatch<React.SetStateAction<ParsedBtcBalance>>;
 };
