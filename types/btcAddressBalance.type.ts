@@ -8,12 +8,12 @@ export interface CsvBtcAddressBalance {
 }
 
 interface BtcAddressBalance {
-  time: string;
-  btc1K: string;
-  btc10K: string;
-  btc100K: string;
-  btc1M: string;
-  btc10M: string;
+  Time: string;
+  ">1K": string;
+  ">10K": string;
+  ">100K": string;
+  ">1M": string;
+  ">10M": string;
 }
 
 export default BtcAddressBalance;

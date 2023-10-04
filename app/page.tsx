@@ -1,6 +1,7 @@
 "use client";
 
 import TableButtons from "@/components/TableButtons";
+import ChartContainer from "@/components/ChartContainer";
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
           </p>
         </div>
       </div>
-      <div className="max-w-2xl mx-auto p-8 text-center">
+      <div className="max-w-6xl mx-auto p-8 text-center">
+        <ChartContainer />
         <TableButtons />
       </div>
     </section>
