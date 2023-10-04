@@ -72,6 +72,15 @@ The project structure is organized as follows:
 - **utils/**: Utility functions for parsing data and date formatting.
 - **\*\*/\_\_tests\_\_/:** Test cases for automated Jest testing.
 
+## Implementation Notes
+
+- Rechart charting engine was used to create the [WalletLineChart](components/WalletLineChart.tsx#L53) component
+- Used the static data provided to build the API method [`GET app/api/btc-addresses`](app/api/btc-wallets/route.ts)
+  - Formatting for the CSV for the JSON timeseries response object is within the [mapCsvHeaders](utils/mapCsvHeaders.ts) helper function. Some additional formatting was done directly in the api route. Please refer to [Assumptions](#assumptions) for additional notes
+  - API call to load the data inside of the React Component can be found in [ChartContainer](components/ChartContainer.tsx). Data is then stored with [Context API](https://react.dev/learn/passing-data-deeply-with-context) under [context/data.context.tsx](context/data.context.tsx)
+- Design Template was used for UI inspiration
+   - Depending on chart filter (ie - ALL vs YTD) the x-axis tick will change between `YYYY` and `D. LLL` format. Logic can be found under [tickFormatter](components/WalletLineChart.tsx#L47)
+   - [TableButtons](components/TableButtons.tsx) will change [filter state](components/TableButtons.tsx#L28) via [Context API](https://react.dev/learn/passing-data-deeply-with-context) and also change colors under a [conditional (tenary) operator](components/TableButtons.tsx#L20).
 ## Performance
 
 - Server-side rendering (SSR) is used to enhance performance. For this project I decided to migrate from the Page Router to the App Router as it is server-centric while client-side render is opt-in.
