@@ -9,11 +9,11 @@ export interface CsvBtcAddressBalance {
 
 interface BtcAddressBalance {
   Time: string;
-  ">1K": string;
-  ">10K": string;
-  ">100K": string;
-  ">1M": string;
-  ">10M": string;
+  ">1K": number;
+  ">10K": number;
+  ">100K": number;
+  ">1M": number;
+  ">10M": number;
 }
 
 export default BtcAddressBalance;

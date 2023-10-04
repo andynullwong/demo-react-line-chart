@@ -1,9 +1,9 @@
 "use client";
 
-import { CsvBtcAddressBalance } from "@/types/btcAddressBalance.type";
+import BtcAddressBalance from "@/types/btcAddressBalance.type";
 import { ReactNode, createContext, useContext, useState } from "react";
 
-type ParsedBtcBalance = Papa.ParseResult<CsvBtcAddressBalance>;
+type ParsedBtcBalance = Papa.ParseResult<BtcAddressBalance>;
 
 export type DataContextType = {
   data: ParsedBtcBalance;

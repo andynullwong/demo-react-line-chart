@@ -25,5 +25,15 @@ export const GET = async () => {
     });
   }
 
-  return Response.json(csvData);
+  const updatedCsvDataList = csvData.data.map((d) => {
+    return {
+      ...d,
+      ">10K": d[">10K"] / 10,
+      ">100K": d[">100K"] / 100,
+      ">1M": d[">1M"] / 1000,
+      ">10M": d[">10M"] / 10000,
+    };
+  });
+
+  return Response.json({ ...csvData, data: updatedCsvDataList });
 };
