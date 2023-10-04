@@ -3,34 +3,34 @@
 exports[`TableButtons snapshot 1`] = `
 <div>
   <span
-    class="isolate inline-flex rounded-md shadow-sm"
+    class="isolate flex justify-end rounded-md shadow-sm"
   >
     <button
-      class="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+      class="relative -ml-px inline-flex items-center px-3 py-2 text-sm font-semibold ring-1 ring-inset focus:z-10 text-gray-900 bg-gray-50 ring-gray-300"
       type="button"
     >
       ALL
     </button>
     <button
-      class="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+      class="relative -ml-px inline-flex items-center px-3 py-2 text-sm font-semibold ring-1 ring-inset focus:z-10 text-gray-900 bg-gray-50 ring-gray-300"
       type="button"
     >
       YTD
     </button>
     <button
-      class="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+      class="relative -ml-px inline-flex items-center px-3 py-2 text-sm font-semibold ring-1 ring-inset focus:z-10 text-gray-900 bg-gray-50 ring-gray-300"
       type="button"
     >
       12M
     </button>
     <button
-      class="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+      class="relative -ml-px inline-flex items-center px-3 py-2 text-sm font-semibold ring-1 ring-inset focus:z-10 text-gray-900 bg-gray-50 ring-gray-300"
       type="button"
     >
       3M
     </button>
     <button
-      class="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+      class="relative -ml-px inline-flex items-center px-3 py-2 text-sm font-semibold ring-1 ring-inset focus:z-10 text-gray-900 bg-gray-50 ring-gray-300"
       type="button"
     >
       1M

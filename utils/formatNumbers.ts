@@ -7,8 +7,14 @@ export const numberToMillions = (num: number) =>
     ? `${(num / 1000).toFixed(1)}k`
     : num.toFixed(2);
 
-const getFormattedDateFromString = (dateString: string, formatting: string) =>
-  format(parseISO(dateString), formatting);
+const getFormattedDateFromString = (dateString: string, formatting: string) => {
+  try {
+    return format(parseISO(dateString), formatting);
+  } catch (error) {
+    // console.error(error);
+    return "";
+  }
+};
 
 export const getYearFromDateString = (dateString: string) =>
   getFormattedDateFromString(dateString, "yyyy");
