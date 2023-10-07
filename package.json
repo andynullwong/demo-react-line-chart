@@ -1,5 +1,6 @@
 {
   "private": true,
+  "author": "Andy Wong (andynullwong@gmail.com)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

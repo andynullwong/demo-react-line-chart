@@ -98,6 +98,8 @@ While comparing my output to the provided screenshots I realized some major diff
 
 Due to time constraints and prioritization of maximizing feature completeness and test coverage certain ideas were considered but not implemented for the following reasons:
 
+- Example implementation shows the ability to hover and "focus" on each line balance while the remaining lines are dimmed. The charting engine does not do this by default but is possible with the `onHover` methods if I had more time
+
 - For large datasets it is common to use algos to downsample it to improve rendering while minimizing any loss data. In this scenerio I would have considered [LTTB](https://github.com/sveinn-steinarsson/flot-downsample)
 
 - I attempted to simplify the filter testing by using `dotenv` and assigning `process.env.MOCK_TODAY_DATE = "2023-02-01"` mock [TODAY](utils/walletUtil.ts#L8)'s date. On testing I realized that I set the server-side clock but not my browsers. If I was able to completely render all the charts and filters on the server then maybe this could be reconsidered.
