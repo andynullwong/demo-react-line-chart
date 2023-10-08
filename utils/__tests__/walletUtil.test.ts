@@ -16,7 +16,7 @@ describe("getDateRangeMax", () => {
     expect(result).toEqual(expected);
   });
 
-  it("should return a date 90 days ago for ChartRange.M_12", () => {
+  it("should return a date 1 year ago for ChartRange.M_12", () => {
     const result = getDateRangeMax(ChartRange.M_12);
     const expected = new Date(TODAY);
     expected.setDate(expected.getDate() - 12 * 30);
