@@ -1,11 +1,12 @@
 import ChartRange from "@/types/chartRange.type";
 import { parseISO } from "date-fns";
 
-const { MOCK_TODAY_DATE } = process.env;
+// const { MOCK_TODAY_DATE } = process.env;
 
 export const walletChartCache = new Map<ChartRange, number>();
 
-export const TODAY = MOCK_TODAY_DATE ? parseISO(MOCK_TODAY_DATE) : new Date();
+// export const TODAY = MOCK_TODAY_DATE ? parseISO(MOCK_TODAY_DATE) : new Date();
+const TODAY = parseISO("2023-02-01");
 
 export const getDateRangeMax = (filter: ChartRange): Date => {
   const maxDate = new Date(TODAY);
